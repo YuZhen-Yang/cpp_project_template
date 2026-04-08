@@ -17,9 +17,8 @@ def run(cmd):
 run("pip install pre-commit")
 run("pre-commit install")
 
-for path in [".pre-commit-config.yaml", __file__]:
-    try:
-        os.remove(path)
-        print(f"Removed: {path}")
-    except OSError as e:
-        print(f"Warning: could not remove {path}: {e}", file=sys.stderr)
+try:
+    os.remove(__file__)
+    print(f"Removed: {__file__}")
+except OSError as e:
+    print(f"Warning: could not remove setup script: {e}", file=sys.stderr)
