@@ -1,3 +1,9 @@
+---
+paths:
+  - "**/CMakeLists.txt"
+  - "**/*.cmake"
+---
+
 # CMake 编码规范
 
 > 基于 [Modern CMake](https://cliutils.gitlab.io/modern-cmake/chapters/intro/dodonot.html) 与 [Effective Modern CMake](https://gist.github.com/mbinna/c61dbb39bca0e4fb7d1f73b0d66a4fd1) 整理。
@@ -142,14 +148,14 @@ target_compile_options(MyTarget PRIVATE /W4)
 
 - 使用 `target_compile_options()`，禁止全局 `add_compile_options()`。
 - 警告选项（`-Wall`、`/W4` 等）只能放 `PRIVATE`，**禁止放 PUBLIC/INTERFACE**。
-- **禁止使用 `-Werror` / `/WX`**（参见第 15 节）。
+- **禁止使用 `-Werror` / `/WX`**（参见第 18 节）。
 - 影响 ABI 的选项（如 `/MD` vs `/MT`、`-fPIC`）不得放入 `target_compile_options()`，应全局或通过 toolchain 设置。
 
 ---
 
 ## 9. 头文件路径
 
-优先使用 target_sources  中FILE_SET 的形式。
+优先使用 `target_sources` 中 `FILE_SET` 的形式。
 
 ---
 
