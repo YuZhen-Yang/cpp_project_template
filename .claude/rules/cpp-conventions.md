@@ -76,6 +76,29 @@ using DataCallback = std::function<void(int)>;  // using 而非 typedef
 
 ---
 
-## 5. 兜底声明
+## 5. `const` 位置风格
+
+优先使用 **east const**（`const` 放类型右侧），配合 `auto` 时写作 `auto const&`：
+
+```cpp
+// 正确：east const 风格
+auto const& name = getName();
+auto const  value = compute();
+int  const  kMaxSize = 256;
+
+// 范围 for 优先写法
+for (auto const& item : items) { ... }
+
+// 错误：west const（禁止）
+const auto& name = getName();
+const int   kMaxSize = 256;
+```
+
+- 规则统一：`const` 始终位于它所修饰类型的**右侧**。
+- 指针场景同理：`int* const p`（指针本身不可变）、`int const* p`（指向内容不可变）。
+
+---
+
+## 6. 兜底声明
 
 本规范从 `.clang-tidy` 提炼，若遇到未覆盖的情况，**直接读取项目根目录的 `.clang-tidy` 文件**，以其 `Checks` 和 `CheckOptions` 字段为最终判断依据。
