@@ -9,7 +9,7 @@ TabWidth: 4
 AccessModifierOffset: -4
 
 # 每行最大列数
-ColumnLimit: 90
+ColumnLimit: 100
 
 # namespace 内容缩进
 NamespaceIndentation: All
@@ -47,7 +47,15 @@ AllowShortFunctionsOnASingleLine: InlineOnly
 AllowShortLambdasOnASingleLine: Inline
 
 # 构造函数初始化列表：先试同一行，放不下再试下一行全部塞一起,再放不下才每个独占一行
-PackConstructorInitializers: NextLine 
+PackConstructorInitializers: NextLine
+
+# 返回类型不要与函数名断行
+AlwaysBreakAfterReturnType: None
+# 提高返回类型单独断行的惩罚，优先在参数处换行
+PenaltyReturnTypeOnItsOwnLine: 1000
+
+# 模板声明总是换行
+AlwaysBreakTemplateDeclarations: Yes
 
 # 其他常用设置
 SpaceBeforeParens: ControlStatements
