@@ -11,6 +11,7 @@ Checks: >
   modernize-use-override,
   modernize-use-default-member-init,
   modernize-use-using,
+  readability-braces-around-statements,
   bugprone-*,
   performance-*,
   -bugprone-easily-swappable-parameters,

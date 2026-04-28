@@ -54,7 +54,33 @@ using DataCallback = std::function<void(int)>;  // using 而非 typedef
 
 ---
 
-## 3. 禁止事项
+## 3. 控制语句必须加 `{}`
+
+基于 `readability-braces-around-statements`：
+
+- `if`、`else`、`for`、`while`、`do while` 的语句体**必须**使用 `{}` 包裹，即使只有单行。
+
+```cpp
+// 正确
+if (ready) {
+    process();
+}
+
+for (auto const& item : items) {
+    sum += item.value;
+}
+
+// 错误：缺少 {}
+if (ready)
+    process();
+
+for (auto const& item : items)
+    sum += item.value;
+```
+
+---
+
+## 4. 禁止事项
 
 基于 `google-*` 和 `bugprone-*` checks：
 
@@ -66,7 +92,7 @@ using DataCallback = std::function<void(int)>;  // using 而非 typedef
 
 ---
 
-## 4. 性能要求
+## 5. 性能要求
 
 基于 `performance-*` checks：
 
@@ -76,7 +102,7 @@ using DataCallback = std::function<void(int)>;  // using 而非 typedef
 
 ---
 
-## 5. `const` 位置风格
+## 6. `const` 位置风格
 
 优先使用 **east const**（`const` 放类型右侧），配合 `auto` 时写作 `auto const&`：
 
@@ -99,6 +125,6 @@ const int   kMaxSize = 256;
 
 ---
 
-## 6. 兜底声明
+## 7. 兜底声明
 
 本规范从 `.clang-tidy` 提炼，若遇到未覆盖的情况，**直接读取项目根目录的 `.clang-tidy` 文件**，以其 `Checks` 和 `CheckOptions` 字段为最终判断依据。
