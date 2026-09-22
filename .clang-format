@@ -1,7 +1,7 @@
 BasedOnStyle: LLVM
 
-# 缩进：使用 Tab
-UseTab: Always
+# 缩进：使用 空格
+UseTab: Never
 IndentWidth: 4
 TabWidth: 4
 
