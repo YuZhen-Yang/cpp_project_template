@@ -10,7 +10,8 @@
       "name": "release",
       "displayName": "Release",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/release",
+      "binaryDir": "${sourceDir}/build/Release",
+      "toolchainFile": "build/Release/generator/conan_toolchain.cmake",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
@@ -20,7 +21,8 @@
       "name": "debug",
       "displayName": "Debug",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/debug",
+      "binaryDir": "${sourceDir}/build/Debug",
+      "toolchainFile": "build/Debug/generator/conan_toolchain.cmake",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
@@ -30,7 +32,8 @@
       "name": "relwithdebinfo",
       "displayName": "RelWithDebInfo",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/relwithdebinfo",
+      "binaryDir": "${sourceDir}/build/RelWithDebInfo",
+      "toolchainFile": "build/RelWithDebInfo/generator/conan_toolchain.cmake",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
@@ -38,6 +41,20 @@
     }
   ],
   "buildPresets": [
+    {
+      "name": "release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "relwithdebinfo",
+      "configurePreset": "relwithdebinfo"
+    }
+  ],
+  "testPresets": [
     {
       "name": "release",
       "configurePreset": "release"

@@ -1,0 +1,8 @@
+﻿[options]
+gtest/*:shared=True
+gtest/*:build_gmock=True
+gtest/*:disable_pthreads=False
+# 示例
+# qt/*:shared=True
+# qt/*:qtdatavis3d=True
+# boost/*:header_only=True
